@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="es.esy.elderxavier.cadin.MainActivity"
+    tools:showIn="@layout/activity_main">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Login"
+            android:id="@+id/textView_1"
+            android:textSize="35dp"
+            android:elegantTextHeight="false"
+            android:textAlignment="center"
+            android:background="#000000"
+            android:contextClickable="false"
+            android:textColor="#ffffff"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="20dp"
+            />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Usuário"
+        android:id="@+id/textView_usuario"
+        android:layout_below="@+id/textView_1"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="41dp"
+        android:layout_alignParentEnd="true"
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:id="@+id/tb_usuario"
+        android:layout_below="@+id/textView_usuario"
+        android:layout_alignStart="@+id/textView_usuario"
+        android:layout_alignParentEnd="true"
+        android:editable="true"
+        android:enabled="true"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:background="#708090"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        android:hint="* Digite o usuário"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Senha"
+        android:id="@+id/textView_senha"
+        android:textSize="30dp"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/textView_usuario" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/tb_senha"
+        android:layout_below="@+id/textView_senha"
+        android:layout_alignStart="@+id/tb_usuario"
+        android:background="#708090"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:layout_alignEnd="@+id/tb_usuario"
+        android:hint="* Digite sua senha"
+        />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Entrar"
+        android:id="@+id/bt_entrar"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/tb_senha"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="30dp"
+        android:typeface="sans" />
+
+</RelativeLayout>
