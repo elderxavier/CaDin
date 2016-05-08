@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS `cadin_usuario` (
     nome varchar(255) NOT NULL,
     email varchar(255) NOT NULL,
     senha varchar(255),
+    foto TEXT CHARACTER SET utf8,
     created DATETIME  ON UPDATE CURRENT_TIMESTAMP,
     modified DATETIME ON UPDATE CURRENT_TIMESTAMP,  
     PRIMARY KEY(id)    
