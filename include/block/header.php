@@ -7,11 +7,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">admin</a> 
+            <a class="navbar-brand" href="javascript:void(0)"><?php echo $_SESSION['user']['nome']?></a> 
         </div>
         <div style="color: white;
              padding: 15px 50px 5px 50px;
              float: right;
-             font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+             font-size: 16px;"> <a href="javascript:void(0)" class="btn btn-danger square-btn-adjust">Logout</a> </div>
     </nav>       
 </header>

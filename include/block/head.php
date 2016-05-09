@@ -7,9 +7,10 @@
     <link href="<?php echo $_URLSITE ?>/assets/css/font-awesome.css" rel="stylesheet" />     
     <link href="<?php echo $_URLSITE ?>/assets/js/lib/morris/morris-0.4.3.min.css" rel="stylesheet" />        
     <link href="<?php echo $_URLSITE ?>/assets/css/custom.css" rel="stylesheet" />
-    <link href="<?php echo $_URLSITE ?>/assets/css/sweetalert.css">    
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">    
+    <link href="<?php echo $_URLSITE ?>/assets/css/sweetalert.css">      
     <script src="<?php echo $_URLSITE ?>/assets/js/lib/jquery-2.2.3.min.js"></script>    
     <script src="<?php echo $_URLSITE ?>/assets/js/lib/jquery-ui.js"></script> 
+    <script src="<?php echo $_URLSITE ?>/assets/js/lib/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
     <title><?php echo $_PAGETITLE ?> </title>     
 </head>

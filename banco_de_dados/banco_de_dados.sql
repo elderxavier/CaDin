@@ -18,9 +18,10 @@ CREATE TABLE IF NOT EXISTS `cadin_endereco` (
     logradouro varchar(255),
     numero varchar(255),
     complemento varchar(255),
+    bairo varchar(255),
     cidade varchar(255),
     uf_estado varchar(255),
-    cep int(11),
+    cep varchar(11),
     created DATETIME  ON UPDATE CURRENT_TIMESTAMP,
     modified DATETIME ON UPDATE CURRENT_TIMESTAMP, 
     FOREIGN KEY (usuario_id) 

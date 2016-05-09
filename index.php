@@ -13,9 +13,9 @@ include_once 'include/config.php';
 include_once 'include/conexao/conexao.class.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/cadin/include/helpers/helper.php';
 $helper = New Helper();
-if (isset($_COOKIE['cadin'])) {
+/*if (isset($_COOKIE['cadin'])) {
     $helper->checkUser($_COOKIE['cadin']);
-}
+}*/
 
 session_start();
 if (isset($_SESSION['user'])) {
@@ -47,13 +47,12 @@ if (isset($_SESSION['user'])) {
                 <!-- /. PAGE INNER  -->
             </div>            
             <!-- /. PAGE WRAPPER  -->
-            <!-- /. WRAPPER  -->         
+            <!-- /. WRAPPER  -->                
             <?php include_once 'include/block/footer.php' ?>             
             <script src="<?php echo $_URLSITE ?>/assets/js/lib/bootstrap.min.js"></script> 
             <script src="<?php echo $_URLSITE ?>/assets/js/lib/dataTables/jquery.dataTables.js"></script>
             <script src="<?php echo $_URLSITE ?>/assets/js/lib/dataTables/dataTables.bootstrap.js"></script>              
-            <script src="<?php echo $_URLSITE ?>/assets/js/lib/jquery.maskMoney.min.js"></script>
-            <script src="<?php echo $_URLSITE ?>/assets/js/lib/sweetalert.min.js"></script>
+            <script src="<?php echo $_URLSITE ?>/assets/js/lib/jquery.maskMoney.min.js"></script>            
             <!-- CUSTOM SCRIPTS -->        
             <script src="<?php echo $_URLSITE ?>/assets/js/indexController.js"></script>
 

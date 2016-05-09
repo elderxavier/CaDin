@@ -51,11 +51,21 @@ class Resources {
                     $sql = "INSERT INTO `cadin_usuario` (`nome`,`email`,`senha`)
                       VALUE('" . $_REQUEST['nome'] . "','" . $_REQUEST['email'] . "','" . $senha . "');
                       ";
+                    $query = Conexao::getInstance()->exec($sql);
                     $query = null;
+
+                    $sql = "SELECT `id` FROM `cadin_usuario` ORDER BY `id` desc LIMIT 0,1";
+                    $query = Conexao::getInstance()->query($sql);
+                    $id = $query->fetchall(PDO::FETCH_ASSOC)[0]['id'];
+                    $query = null;
+
+                    $sql = "INSERT INTO `cadin_endereco` (`usuario_id`)
+                         VALUE(" . $id . ");
+                      ";
                     $query = Conexao::getInstance()->exec($sql);
                     if ($query) {
                         $status = 1;
-                        $msg = 'Email cadastrado cadastrado com sucesso';
+                        $msg = 'Seu cadastro foi realizado com sucesso ! ';
                     }
                     $query = null;
                 }
@@ -83,15 +93,12 @@ class Resources {
                 $senha = $result['senha'];
                 $query = null;
                 $comp = $this->helper->ComparaSenha($_REQUEST['senha'], $senha);
-                if ($comp) {                    
+                if ($comp) {
                     session_start();
-                    $_SESSION['user']=$result;
+                    $_SESSION['user'] = $result;
                     $status = 1;
-                }else{            
-                    if(isset($_COOKIE['cadin'])){
-                        unset($_COOKIE['cadin']);
-                    }
-                    $msg='Usuário e senha não coincidem!';
+                } else {
+                    $msg = 'Usuário e senha não coincidem!';
                 }
             } catch (Exception $ex) {
                 $msg = "Ocorreu um erro ao tentar executar esta ação!";
@@ -102,24 +109,36 @@ class Resources {
         }
     }
 
-    /** *********************************************************
+    /**     * ********************************************************
+     * Função Logout: responsavel exluir sessão do criente
+     * ********************************************************* */
+    private function Logout() {
+        $status = 1;
+        $msg = '';
+        unset($_SESSION['user']);
+        session_start();
+        session_destroy();
+        $data = array('status' => $status, 'message' => $msg);
+        echo json_encode($data);
+    }
+
+    /**     * ********************************************************
      * Função AddItem: responsavel por adcionar os itens da pagina finanças no banco de dados
      * ********************************************************* */
-
     private function AddItem() {
         $status = 0;
         $msg = '';
         if (isset($_REQUEST['usuario_id']) && isset($_REQUEST['financa_tipo_id']) && isset($_REQUEST['valor']) && isset($_REQUEST['local']) && isset($_REQUEST['created'])):
             try {
-            //STR_TO_DATE('12-01-2014 00:00:00','%d/%m/%Y %H:%i:%s');
                 $sql = "INSERT INTO `cadin_financa` (`usuario_id`,`financa_tipo_id`,`valor`,`local`,`created` )
-                    VALUE('" . $_REQUEST['usuario_id'] . "','" . $_REQUEST['financa_tipo_id'] . "','" . $_REQUEST['valor'] . "','" . $_REQUEST['local'] . "','".$_REQUEST['created']."');
+                    VALUE('" . $_REQUEST['usuario_id'] . "','" . $_REQUEST['financa_tipo_id'] . "','" . $_REQUEST['valor'] . "','" . $_REQUEST['local'] . "','" . $_REQUEST['created'] . "');
                  ";
                 //VALUE('" . $_REQUEST['usuario_id'] . "','" . $_REQUEST['financa_tipo_id'] . "','" . $_REQUEST['valor'] . "','" . $_REQUEST['local'] . "'STR_TO_DATE('".$_REQUEST['created']."','%d/%m/%Y %H:%i:%s'));
                 $query = Conexao::getInstance()->exec($sql);
                 if ($query) {
                     $status = 1;
                 }
+                $query = null;
             } catch (Exception $ex) {
                 $msg = "Ocorreu um erro ao tentar executar esta ação!";
                 CriaLog::Logger('Erro: Código: ' . $ex->getCode() . ' Mensagem: ' . $ex->getMessage());
@@ -128,6 +147,124 @@ class Resources {
         $data = array('status' => $status, 'message' => $msg);
         echo json_encode($data);
     }
+
+    private function EditItem() {
+        $status = 0;
+        $msg = '';
+        if (isset($_REQUEST['id']) && isset($_REQUEST['financa_tipo_id']) && isset($_REQUEST['valor']) && isset($_REQUEST['local']) && isset($_REQUEST['created'])):
+            try {
+
+                $sql = "UPDATE `cadin_financa` SET 
+                    `financa_tipo_id` = '" . $_REQUEST['financa_tipo_id'] . "',
+                    `valor` = " . $_REQUEST['id'] . ",
+                    `local` = '" . $_REQUEST['valor'] . "',
+                    `created` = '" . $_REQUEST['created'] . "'
+                    WHERE `id` = '" . $_REQUEST['id'] . "'                    
+                 ";
+                $query = Conexao::getInstance()->exec($sql);
+                if ($query) {
+                    $status = 1;
+                }
+                $query = null;
+            } catch (Exception $ex) {
+                $msg = "Ocorreu um erro ao tentar executar esta ação!";
+                CriaLog::Logger('Erro: Código: ' . $ex->getCode() . ' Mensagem: ' . $ex->getMessage());
+            }
+        endif;
+        $data = array('status' => $status, 'message' => $msg);
+        echo json_encode($data);
+    }
+
+    private function DeleteIitem() {
+        $status = 0;
+        $msg = '';
+        if (isset($_REQUEST['id'])):
+            try {
+                $sql = "DELETE FROM `cadin_financa` 
+                    WHERE `id` = '" . $_REQUEST['id'] . "'                    
+                 ";
+                $query = Conexao::getInstance()->exec($sql);
+                if ($query) {
+                    $status = 1;
+                }
+                $query = null;
+            } catch (Exception $ex) {
+                $msg = "Ocorreu um erro ao tentar executar esta ação!";
+                CriaLog::Logger('Erro: Código: ' . $ex->getCode() . ' Mensagem: ' . $ex->getMessage());
+            }
+        endif;
+        $data = array('status' => $status, 'message' => $msg);
+        echo json_encode($data);
+    }
+
+    public function fileUpload() {
+        $status = 0;
+        $msg = '';
+        $values = '';
+        $values = false;
+        if (isset($_FILES['foto']) && isset($_REQUEST['usuario_id'])) {
+            $foto = $_FILES['foto'];
+            try {
+                $conc = date('HisYmd');
+                $folder = $this->helper->folder_image($foto['name'], $_SERVER['DOCUMENT_ROOT'] . '/cadin/uploads/');
+                $file = $folder . "/" . $conc . $foto['name'];
+                if (move_uploaded_file($foto['tmp_name'], $file)) {
+                    $values = $file;
+                    session_start();
+                    $_SESSION['user']['foto'] = $values;
+                }
+                if ($values) {
+                    $sql = "UPDATE `cadin_usuario` SET 
+                    `foto` = '" . $values . "' WHERE `id` = " . $_REQUEST['usuario_id'];
+                    $query = Conexao::getInstance()->exec($sql);
+                    if ($query) {
+                        $status = 1;
+                    }
+                    $query = null;
+                }
+            } catch (Exception $ex) {
+                $msg = "Ocorreu um erro ao tentar executar esta ação!";
+                CriaLog::Logger('Erro: Código: ' . $ex->getCode() . ' Mensagem: ' . $ex->getMessage());
+            }
+        }
+        $pass = explode('cadin/', $values);
+        $url = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s://" : "://") . $_SERVER['HTTP_HOST'];
+        $values = $url . "/cadin/" . $pass[1];
+        $data = array('status' => $status, 'message' => $msg, 'values' => $values);
+        echo json_encode($data);
+    }
+
+    public function editAddress() {
+        $status = 0;
+        $msg = '';
+        if (isset($_REQUEST['usuario_id']) && isset($_REQUEST['cep']) && isset($_REQUEST['logradouro']) && isset($_REQUEST['numero']) && isset($_REQUEST['complemento']) && isset($_REQUEST['cidade']) && isset($_REQUEST['uf_estado']) && isset($_REQUEST['bairo'])):
+            try {
+
+                $sql = "UPDATE `cadin_endereco` SET 
+                    `cep`= '".$_REQUEST['cep']."',
+                    `logradouro` = '".$_REQUEST['logradouro']."',
+                    `numero` = '".$_REQUEST['numero']."',
+                    complemento = '".$_REQUEST['complemento']."',
+                    cidade = '".$_REQUEST['cidade']."',
+                    uf_estado = '".$_REQUEST['uf_estado']."',
+                    bairo = '".$_REQUEST['bairo']."'
+                    WHERE `usuario_id` = '" . $_REQUEST['usuario_id'] . "'
+                 ";
+                $msg = $sql;
+                $query = Conexao::getInstance()->exec($sql);
+                if ($query) {
+                    $status = 1;
+                }
+                $query = null;
+            } catch (Exception $ex) {
+                $msg = "Ocorreu um erro ao tentar executar esta ação!";
+                CriaLog::Logger('Erro: Código: ' . $ex->getCode() . ' Mensagem: ' . $ex->getMessage());
+            }
+        endif;
+        $data = array('status' => $status, 'message' => $msg,'valuues' =>$_REQUEST );
+        echo json_encode($data);
+    }
+
 }
 
 /* execute resource */

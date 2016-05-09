@@ -300,7 +300,7 @@ p {
 
 }
 .navbar-cls-top {
-    background:#4D4D4D;
+    background:#202020;
     border-bottom:none;
 
 }
@@ -358,15 +358,17 @@ p {
     z-index: 3;
     transition: 0.7s all ease-in
 }
-.load img{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    background: transparent
-}
-.error{color: red !important; border: 1px solid red !important; font-weight: bold !important}
+.load img{position: fixed;top: 50%;left: 50%; background: transparent}
+.error{color: red !important; border: 2px solid red !important; font-weight: bold !important}
 .additem-form .btn{background: #C0C0C0; cursor: pointer; color: #333}
 .additem-form .btn:hover{background:#333;color:#C0C0C0}
+#example th{background: #ddd}
+#example th, #example td{padding: 10px 5px !important; text-align: center; border-right: 1px solid #ddd}
+#example .even, #example .even input, #example .even select{background: #EEEEE0 !important}
+#example .fa-check,#example .fa-times {cursor: pointer}
+#example .fa-check:hover,#example .fa-times:hover{opacity: 0.7}
+#example input, #example select {border: none !important; padding: 10px 5px!important;}
+#example tr {border: 1px solid #ddd !important}
 /*==============================================
     MEDIA QUERIES     
     =============================================*/
