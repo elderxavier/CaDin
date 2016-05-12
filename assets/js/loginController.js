@@ -124,7 +124,7 @@
                 $('.load').addClass('hidden');
                 console.log(retornar);                
                 if (retornar.status == 1) {
-                    window.location.href="index.php";
+                    window.location.href="index";
                 }else{
                     sweetAlert("Algo Errado",retornar.message, "error");
                 }

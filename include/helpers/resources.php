@@ -17,7 +17,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/cadin/include/helpers/crialog.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/cadin/include/helpers/helper.php';
 
 class Resources {
-
     private $helper;
 
     public function __construct() {

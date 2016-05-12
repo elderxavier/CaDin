@@ -92,8 +92,8 @@
             dataType: 'json',
             success: function (retornar) {
                 console.log(retornar);
-                if (!retornar.status == 1) {
-                    sweetAlert("Algo Errado", 'Erro ao incluir dados', "error");
+                if (!retornar.status == 1) {                    
+                    alert('Erro ao incluir dados');
                 } else {
                     window.location.reload();
                 }
@@ -105,7 +105,7 @@
                 } else {
                     console.log("Erro: ", "Erro ao requisitar servidor ", t, x, m, ":(", "error");
                 }
-                sweetAlert("Algo Errado", "sua conexão falhou!", "error");
+                alert("sua conexão falhou!");
             }
         });
     };
@@ -149,8 +149,7 @@
                     } else {
                         console.log("Erro: ", "Erro ao requisitar servidor ", t, x, m, ":(", "error");
                     }
-                    alert("sua conexão falhou!");
-                    //sweetAlert("Algo Errado", "sua conexão falhou!", "error");
+                    alert("sua conexão falhou!");                    
                 }
             });
         }
@@ -183,8 +182,7 @@
                     } else {
                         console.log("Erro: ", "Erro ao requisitar servidor ", t, x, m, ":(", "error");
                     }
-                    alert("sua conexão falhou!");
-                    //sweetAlert("Algo Errado", "sua conexão falhou!", "error");
+                    alert("sua conexão falhou!");                    
                 }
             });
         }
@@ -246,8 +244,7 @@
                     } else {
                         console.log("Erro: ", "Erro ao requisitar servidor ", t, x, m, ":(", "error");
                     }
-                    alert("sua conexão falhou!");
-                    //sweetAlert("Algo Errado", "sua conexão falhou!", "error");
+                    alert("sua conexão falhou!");                    
                 }
             });
         });
@@ -286,8 +283,7 @@
                     } else {
                         console.log("Erro: ", "Erro ao requisitar servidor ", t, x, m, ":(", "error");
                     }
-                    alert("sua conexão falhou!");
-                    //sweetAlert("Algo Errado", "sua conexão falhou!", "error");
+                    alert("sua conexão falhou!");                    
                 }
             });
 
@@ -337,8 +333,7 @@
                     } else {
                         console.log("Erro: ", "Erro ao requisitar servidor ", t, x, m, ":(", "error");
                     }
-                    //alert("sua conexão falhou!");
-                    //sweetAlert("Algo Errado", "sua conexão falhou!", "error");
+                    alert("sua conexão falhou!");                    
                 }
             });
             e.preventDefault();
@@ -375,8 +370,7 @@
                 } else {
                     console.log("Erro: ", "Erro ao requisitar servidor ", t, x, m, ":(", "error");
                 }
-                alert("sua conexão falhou!");
-                //sweetAlert("Algo Errado", "sua conexão falhou!", "error");
+                alert("sua conexão falhou!");                
             }
         });
 

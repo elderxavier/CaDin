@@ -121,5 +121,4 @@
         </div>         
     </div>
     <!-- /. ROW  -->
-</div>
 <!-- /. PAGE INNER  -->

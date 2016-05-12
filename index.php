@@ -42,6 +42,7 @@ if (isset($_SESSION['user'])) {
                     include './include/block/financas.php';
                     include './include/block/graficos.php';
                     include './include/block/conta.php';
+                    include './include/block/apresentacao.php';
                     ?>
                 </div>
                 <!-- /. PAGE INNER  -->
@@ -55,10 +56,10 @@ if (isset($_SESSION['user'])) {
             <script src="<?php echo $_URLSITE ?>/assets/js/lib/jquery.maskMoney.min.js"></script>            
             <!-- CUSTOM SCRIPTS -->        
             <script src="<?php echo $_URLSITE ?>/assets/js/indexController.js"></script>
-
+            <script src="<?php echo $_URLSITE ?>/assets/js/graficosController.js"></script>
         </body>
     </html>
     <?php
 } else {
-    header('Location: ./login.php');
+    header('Location: ./login');
 }
