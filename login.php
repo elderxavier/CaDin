@@ -44,7 +44,7 @@ include_once 'include/config.php';
                             <h1>Login</h1>
                             <div class="description">
                                 <p>
-                                    Use o KDin para controlar suas finanças, é simples prático e feito para você!
+                                    Use o CaDin para controlar suas finanças, é simples prático e feito para você!
                                 </p>
                             </div>
                         </div>
