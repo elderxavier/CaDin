@@ -9,7 +9,7 @@
  * @ Email eldersxavier@gmail.com / contato@elderxavier.com
  * @Description: This is the view for page index 
  * ********************************************************* */
-include_once 'include/config.php';
+include_once 'include/config.php'; 
 include_once 'include/conexao/conexao.class.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/cadin/include/helpers/helper.php';
 $helper = New Helper();
@@ -44,6 +44,7 @@ if (isset($_SESSION['user'])) {
                     include './include/block/conta.php';
                     include './include/block/apresentacao.php';
                     ?>
+                    <a href="https://www.youtube.com/watch?v=Pr2rqeA6T8g" target="_blank" class="hidden"> Link final </a>
                 </div>
                 <!-- /. PAGE INNER  -->
             </div>            

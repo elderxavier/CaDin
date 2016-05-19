@@ -1,7 +1,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Language" content="pt-br">
-    <link rel="shortcut icon" href="include/img/faviico.jpg">
+    <link rel="shortcut icon" href="<?php echo $_URLSITE ?>/assets/img/faviico.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />    	
     <link href="<?php echo $_URLSITE ?>/assets/css/bootstrap.css" rel="stylesheet" />     
     <link href="<?php echo $_URLSITE ?>/assets/css/font-awesome.css" rel="stylesheet" />     
@@ -13,5 +13,5 @@
     <script src="<?php echo $_URLSITE ?>/assets/js/lib/jquery-ui.1.11.2.min.js"></script>    
     <script src="<?php echo $_URLSITE ?>/assets/js/lib/jquery.canvasjs.min.js"></script>    
     
-    <title><?php echo $_PAGETITLE ?> </title>     
+    <title> Kdin  - Controle de Financiero</title>     
 </head>

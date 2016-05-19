@@ -44,7 +44,7 @@ include_once 'include/config.php';
                             <h1>Login</h1>
                             <div class="description">
                                 <p>
-                                    Use o CaDin para controlar suas finanças, é simples prático e feito para você!
+                                    Use o KDin para controlar suas finanças, é simples prático e feito para você!
                                 </p>
                             </div>
                         </div>
@@ -105,7 +105,7 @@ include_once 'include/config.php';
                                 <div class="form-top">
                                     <div class="form-top-left">
                                         <h3>Criar conta</h3>
-                                        <p>Crie sua conta e aproteote o CaDin:</p>
+                                        <p>Crie sua conta e aproteote o KDin:</p>
                                     </div>
                                     <div class="form-top-right">
                                         <i class="fa fa-pencil"></i>
@@ -148,9 +148,7 @@ include_once 'include/config.php';
                 <div class="row">
 
                     <div class="col-sm-8 col-sm-offset-2">
-                        <div class="footer-border"></div>
-                        <p>Made by Anli Zaimi at <a href="http://azmind.com/" target="_blank"><strong>AZMIND</strong></a> 
-                            having a lot of fun. <i class="fa fa-smile-o"></i></p>
+                        <div class="footer-border"></div>                        
                     </div>
 
                 </div>
