@@ -57,7 +57,7 @@ include_once 'include/config.php';
                                 <div class="form-top">
                                     <div class="form-top-left">
                                         <h3>Entrar</h3>
-                                        <p>Entre com seu usuário e senha:</p>
+                                        <p>Entre com seu Email e senha:</p>
                                     </div>
                                     <div class="form-top-right">
                                         <i class="fa fa-key"></i>
@@ -67,7 +67,7 @@ include_once 'include/config.php';
                                     <form role="form" action="javascript:void(0)" method="post" class="login-form">
                                         <div class="form-group">
                                             <label class="sr-only" for="form-username">Usuário</label>
-                                            <input type="text" name="form-username" placeholder="Usuário..." class="form-username form-control" id="form-username">
+                                            <input type="text" name="form-username" placeholder="Email..." class="form-username form-control" id="form-username">
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="form-password">Senha</label>
@@ -105,7 +105,7 @@ include_once 'include/config.php';
                                 <div class="form-top">
                                     <div class="form-top-left">
                                         <h3>Criar conta</h3>
-                                        <p>Crie sua conta e aproteote o KDin:</p>
+                                        <p>Crie sua conta e aproveite o CaDin:</p>
                                     </div>
                                     <div class="form-top-right">
                                         <i class="fa fa-pencil"></i>
